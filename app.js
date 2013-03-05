@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -18,7 +17,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
-  app.use(express.session({ secret: "gugabsb@gmail.com" }));
+  app.use(express.session({ secret: "gugabsb" }));
   app.use(partials());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
@@ -35,7 +34,7 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.use(express.errorHandler());
   //Database
-  mongoose.connect('mongodb://nodejitsu:f9cfe9da6bc07ff3595e67c572a0ca27@staff.mongohq.com:10079/nodejitsudb863525707992');
+  //mongoose.connect('mongodb://gugabsb:123456@localhost/nodejitsudb863525707992');
 });
 
 // Routes
