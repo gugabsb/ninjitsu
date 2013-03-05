@@ -1,0 +1,56 @@
+script.
+	function fnSair(){
+		window.location="/sair"
+	}
+	function fnFecharJogo(){
+		$('#container-jogo').hide('slow').animate('faldeout');
+		$('#jogo-page').attr("src",'/images/pixel.png');
+	}
+	function fnAbreJogo(jogo,titulo,layout){
+		$('#container-jogo').css("display","block");
+		$('#jogo-page').attr("src",'/jogos?jogo='+jogo+'&titulo='+titulo+'&layout='+layout);
+	}
+style.
+	#fechar-jogo{
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		border:1px solid #ddd;
+		background-color: rgba(0, 0, 0, .8);
+		cursor: pointer;
+		color: #fff;
+		line-height:40px;
+		border-bottom-right-radius: 10px;
+		font-weight: bold;
+	}
+	#fechar-jogo:hover{
+		background-color:red;
+	}
+
+div#topbar
+	h2.boasvindas Seja bem vindo #{login.nome}
+	input#doSair.btSair(name="doSair", type="button", value="sair", onClick="fnSair()");
+div#main
+	div#box_pessoal
+		h2#titulo Minha Área
+		div#cadastro Cadastro
+		div#recordes Meus Recordes
+		div#amigos Amigos
+	div#box_jogos
+		h2#titulo Jogos
+		div#jogos_quebracabeca(onClick="fnAbreJogo('quebracabeca','Quebra-Cabeça','quebracabeca')") Quebra-Cabeça
+		div#jogos_quebracabeca(onClick="fnAbreJogo('ben10powersplash','Ben 10 - Power Splash','externos')") Ben 10 - Power Splash
+		div#jogos_quebracabeca(onClick="fnAbreJogo('ben10ultimatrix','Ben 10 - Ultimatrix','externos')") Ben 10 - Ultimatrix
+		div#jogos_recordes Recordes
+	div#box_social
+		h2#titulo Social
+		div#online On-line
+		div#chat Chat
+//jogo
+div#container-jogo
+	div#main-jogo
+		div#main-jogo-mask
+			div#jogo-box
+				div#fechar-jogo(onClick="fnFecharJogo()", title="Sair do Jogo")
+					span X
+				iframe#jogo-page

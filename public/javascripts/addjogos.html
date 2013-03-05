@@ -1,0 +1,117 @@
+<html>
+<head>
+	<script type="text/javascript" src="./jquery-1.7.2.min.js" ></script>
+	<script type="text/javascript" src="./addjogos.js" ></script>	
+</head>
+<body>
+<script type="text/javascript">
+$(document).ready(function(){
+	fnAddJogos();
+});
+
+function fnAddJogos(){
+	for (var objjogos in lista_img_thumb_ben10){
+		var objjogo = lista_img_thumb_ben10[objjogos];
+		$.ajax({
+			url: "http://localhost/addjogo",
+			type: "POST",
+			data: {
+			jogo: objjogo.jogo,
+			categoria: objjogo.categoria,
+			link: objjogo.link,
+			titulo: objjogo.titulo,
+			usuario: "todos"
+		},
+		cache: false,
+		timeout: 5000,
+		complete: function() {
+			console.log('process complete');
+		},
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+		});
+	}
+	for (var objjogos in lista_img_thumb_barbie){
+		var objjogo = lista_img_thumb_barbie[objjogos];
+		$.ajax({
+			url: "http://localhost/addjogo",
+			type: "POST",
+			data: {
+			jogo: objjogo.jogo,
+			categoria: objjogo.categoria,
+			link: objjogo.link,
+			titulo: objjogo.titulo,
+			usuario: "todos"
+		},
+		cache: false,
+		timeout: 5000,
+		complete: function() {
+			console.log('process complete');
+		},
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+		});
+	}
+	for (var objjogos in lista_img_thumb_beyblade){
+		var objjogo = lista_img_thumb_beyblade[objjogos];
+		$.ajax({
+			url: "http://localhost/addjogo",
+			type: "POST",
+			data: {
+			jogo: objjogo.jogo,
+			categoria: objjogo.categoria,
+			link: objjogo.link,
+			titulo: objjogo.titulo,
+			usuario: "todos"
+		},
+		cache: false,
+		timeout: 5000,
+		complete: function() {
+			console.log('process complete');
+		},
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+		});
+	}
+	for (var objjogos in lista_img_thumb_bakugan){
+		var objjogo = lista_img_thumb_bakugan[objjogos];
+		$.ajax({
+			url: "http://localhost/addjogo",
+			type: "POST",
+			data: {
+			jogo: objjogo.jogo,
+			categoria: objjogo.categoria,
+			link: objjogo.link,
+			titulo: objjogo.titulo,
+			usuario: "todos"
+		},
+		cache: false,
+		timeout: 5000,
+		complete: function() {
+			console.log('process complete');
+		},
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(err) {
+			console.log(err);
+		}
+		});
+	}
+
+}
+</script>
+</body>
+</html>

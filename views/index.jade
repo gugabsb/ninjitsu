@@ -1,0 +1,311 @@
+script(src='/javascripts/login.js')
+script(src='/javascripts/cadastro.js')
+link(rel='stylesheet', href='/stylesheets/login.css')
+link(rel='stylesheet', href='/stylesheets/cadastro.css')
+script.
+    function fnDownloadChrome(){
+        window.open('https://www.google.com/chrome/eula.html?hl=pt-br&client=SZ04');
+    }
+    function fnShowLogin(){
+        $('#container-cadastro').hide().animate();
+        $('#container-login').show('slow').animate();
+        $(".msgErro").remove();
+    }
+    function fnCloseLogin(){
+        $('#container-login').hide('slow').animate();
+        $(".msgErro").remove();
+    }
+    function fnShowCadastro(){
+        $('#container-login').hide().animate();
+        $('#container-cadastro').show('slow').animate();
+        $(".msgErro").remove();
+    }
+    function fnCloseCadastro(){
+        $('#container-cadastro').hide('slow').animate();
+        $(".msgErro").remove();
+    }
+    function fnShowEsqueciSenha(){
+        $('.login').hide();
+        $('#emailcadastrado').val("");          
+        $('#esquecisenha').show('slow').animate();
+    }
+    function fnCloseEsqueciSenha(){
+        $('#esquecisenha').hide();      
+        $('.login').show();
+    }   
+style.
+    #msg{
+        position:absolute;
+        z-index:9999;
+        text-align: center;
+        width:100%;
+    }
+    #main{
+        width: 100%;
+        height: 100%;
+        background:#fff url('/images/bg.png');
+    }
+    #topbar{
+        width: 100%;
+        height: 41px;
+        top: 0;
+        left: 0;
+        background:#fff url('/images/bar_texturized.png');
+        text-align:center;
+        vertical-align:middle;
+        color: #ddd;
+        padding-top: 10px;
+    }
+    .btLogin, .btCadastro{
+        height:50px;
+        border: 0px;
+        border-radius: 5px;
+        margin: 10px;
+        font-size: 17px;
+    }
+    .btLogin{
+        background-color: #007FFF;
+        color: #ffffff;
+    }    
+    .btCadastro{
+        background-color: #666666;
+        color: #ffffff;
+    }
+    .btLogin:hover, .btCadastro:hover{
+        background-color: #56AAFF;
+        color: #ffffff;
+    }    
+    #main-box{
+        display: table;
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0px;
+        left:0px;
+        text-align:center;
+    }
+    #main-box-borda{
+        display:table-cell;
+        width:100%;
+        height:100%;
+        vertical-align:middle;
+    }
+    #main-box-janela{
+        display:inline-block;
+        width: 512px;
+        height: 512px;
+        background: #fff url('/images/ninja_home.png') no-repeat;
+    }
+    #patrocinadores{
+        width: 250px;
+        left:0;
+        position:absolute;
+    }
+    #downloadchrome{
+        font-size: 12px;
+        width: 200px;
+        border-top-left-radius:10px;
+        border-bottom-left-radius:10px;
+        border: 1px solid silver;
+        right:0;
+        position:absolute;
+    }
+    #bt_downloadchrome{
+        background:#fff url('https://www.google.com/intl/pt-BR/images/logos/chrome_logo.gif') no-repeat;
+        width: 100%;
+        text-align: right;
+        color: #56aaff;
+    }
+    #downloadchrome p{
+        background-color: rgba(0,0,0,.2);
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: #dddddd;
+    }
+    #downloadchrome span{
+        color: #666;
+    }    
+    #box-jogos-janela{
+        display:inline-block;
+        border:1px solid #666;
+        width:100%;
+        text-align:center;
+        border-radius: 10px;
+        position: absolute;
+        bottom:0px;
+        background: rgba(0,0,0,.3);
+    }
+
+    #box-jogos-janela > div{
+        display:inline-block;
+        color: #999;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+        vertical-align: middle;
+        text-align: center;
+        margin: 5px;
+        border: 2px solid silver;
+        width: 160px;
+        height: 60px;
+    }
+    
+    #box-jogos-janela > div:hover{
+        border: 2px solid #666;
+        -khtml-opacity: .30;
+        -moz-opacity: .30;
+        -ms-filter: "alpha(opacity=30)";
+        filter: alpha(opacity=30);
+        filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.30);
+        opacity: .30;
+    }    
+    .jogos_quebracabeca{
+        background: url('/images/icone_quebracabeca.png') no-repeat;
+    }
+    .jogos_ben10_powersplash{
+        background: url('/images/icone_ben10_powerslpash.png') no-repeat;
+    }
+    .jogos_ben10_ultimatrix{
+        background: url('/images/icone_ben10_ultimatrix.png') no-repeat;
+    }
+    .jogos_ben10_sumoslammersamurai{
+        background: url('/images/icone_ben10_sumoslammersamurai.png') no-repeat;
+    }
+    .jogos_ben10_omnitrixunleashed{
+        background: url('/images/icone_ben10_omnitrixunleashed.png') no-repeat;
+    }
+    .jogos_ben10_cavernrun{
+        background: url('/images/icone_ben10_cavernrun.png') no-repeat;
+    }
+    .jogos_ben10_humongosaurgiantforce{
+        background: url('/images/icone_ben10_humongosaurgiantforce.png') no-repeat;
+    }
+    .jogos_ben10_krakkenattack {
+        background: url('/images/icone_ben10_krakkenattack.png') no-repeat;
+    }
+    .jogos_ben10_herohoops{
+        background: url('/images/icone_ben10_herohoops.png') no-repeat;
+    }
+    
+div#msg
+div#main
+    div#main-box
+        div#main-box-borda
+            div#main-box-janela
+                input#doCadastro.btCadastro(name="doCadastro", type="button", value="Criar cadastro", onClick="fnShowCadastro()")
+                input#doLogin.btLogin(name="doLogin", type="button", value="Entrar e jogar", onClick="fnShowLogin()")
+                
+    div#topbar Nin.Jit.Su - Jogos educativos e divertidos para Crianças!
+    
+    div#box-jogos-janela
+        div.jogos_quebracabeca(onClick="fnShowLogin()")
+        div.jogos_ben10_sumoslammersamurai(onClick="fnShowLogin()")
+        div.jogos_ben10_powersplash(onClick="fnShowLogin()")
+        div.jogos_ben10_ultimatrix(onClick="fnShowLogin()")
+        div.jogos_ben10_omnitrixunleashed(onClick="fnShowLogin()")
+        div.jogos_ben10_cavernrun(onClick="fnShowLogin()")
+        div.jogos_ben10_humongosaurgiantforce(onClick="fnShowLogin()")
+    
+    div#patrocinadores
+        a(href="http://www.anrdoezrs.net/click-6346914-10823645",target="_blank")
+            img(src="http://www.lduhtrp.net/image-6346914-10917969",width="250", height="250", alt="", border="0")
+        img(src="http://www.awltovhc.com/image-6346914-10823645", width="1", height="1", border="0")
+        br
+        |<a href="http://www.tkqlhce.com/click-6346914-10732159" target="_blank" onmouseover="window.status='http://myhosting.com';return true;" onmouseout="window.status=' ';return true;">myhosting.com</a><img src="http://www.awltovhc.com/image-6346914-10732159" width="1" height="1" border="0"/>
+    
+    div#downloadchrome
+        p
+            input#bt_downloadchrome(type="button", value="Instalar", onClick="fnDownloadChrome()")
+        p
+            strong Para jogar no Nin.Jit.Su é preciso utilizar o browser Chrome.
+        p
+            strong O Chrome é grátis e é instalado em segundos. 
+            br
+            span Disponível para Windows XP, Vista, 7, Mac OS...
+        p
+            strong Rápido para inicializar
+            br
+            span O Google Chrome é inicializado em um piscar de olhos.
+        p
+            strong Rápido para carregar
+            br
+            span O Google Chrome carrega rapidamente as páginas.
+        
+//box login
+div#container-login(style="display:none")
+    div#box-login
+        div.box-login-borda
+            div.box-login-janela
+                div.box-login-titulo
+                    img#carregando(src="/images/shuriken.gif")
+                    span.titulo Nin.Jit.Su 
+                div.box-login-conteudo
+                    form(action="/login", method="post", name="form")
+                        fieldset
+                            div.login
+                                input#username.loginField(name="username", placeholder="usuário", type="text", autocomplete="on", tabindex="1")
+                            div.login
+                                input#password.loginField(name="password", placeholder="senha", type="password", autocomplete="off", tabindex="2")
+                            div#submit.login
+                                input#btFechar(name="fecharLogin",type="button", value="sair", onClick="fnCloseLogin()", tabindex="5")
+                                input#btLogin(name="enviar",type="button", value="entrar", onClick="fnLogin()", tabindex="3")
+                                p.linkesquecisenha
+                                    a(href="javascript:fnShowEsqueciSenha()") Esqueceu da senha?                                
+                            div#esquecisenha
+                                input#emailcadastrado.loginField(name="emailcadastrado", placeholder="email cadastrado", type="text", autocomplete="on", tabindex="6")
+                                input#btCancelar(name="fecharLogin",type="button", value=" x ", onClick="fnCloseEsqueciSenha()", tabindex="8")
+                                input#btEsqueciSenha(name="enviar",type="button", value="enviar pro email", onClick="fnEnviaSenha()", tabindex="7")
+
+// box Cadastro
+div#container-cadastro(style="display:none")
+    div#main-cadastro
+        div#main-cadastro-mask
+            div#cadastro-box
+                form#formCadastro(accept-charset="UTF-8", action="/cadastro", method="post")
+                    div.conteudo
+                        h4 Cadastro Grátis
+                        p#instrucoes.instrucoes Essas informações são necessárias para o cadastro no Nin.Jit.Su
+                        li#linome
+                            label(for="nome") Nome Completo:
+                                abbr(title="required") *
+                            input#nome.nome(maxlength="100", name="nome", required="required", type="text", value="")
+                        li#liemail
+                            label Email:
+                                abbr(title="required") *
+                            input#email.email(autocomplete="on", maxlength="100", name="email", required="required", type="email")
+                        li#linascimento
+                            label Nascimento:
+                                abbr(title="required") *
+                            input#nascimento_dia.dia(maxlength="2", name="dia", required="required", type="text", placeholder="dia")
+                            input#nascimento_mes.mes(maxlength="2", name="mes", required="required", type="text", placeholder="mes")
+                            input#nascimento_ano.ano(maxlength="4", name="ano", required="required", type="text", placeholder="ano")
+                            select#sexo.sexo(name="sexo")
+                                option(value="M") Masculino
+                                option(value="F") Feminino
+
+                        fieldset.dados-login
+                            p(style="font-weight:bold").instrucoes Dados para login:
+                            li#liusuario
+                                label(for="usuario") Usuário:
+                                    abbr(title="required") *
+                                input#usuario.usuario(autocomplete="on", maxlength="15", name="usuario", type="text", autocomplete="off")
+                            li#lisenha
+                                label(for="senha") Senha:
+                                    abbr(title="required") *
+                                input#senha.senha(autocomplete="on", maxlength="15", name="senha", type="password", autocomplete="off")
+                        fieldset.termo-de-uso
+                            h4 Termos de Uso
+                            p.instrucoes Por favor leia com atenção o 
+                                a(href="#",target="_blank") Termos de Uso
+                                span e marque a opção abaixo caso esteja de acordo:
+                            li
+                                label 
+                                    input#termos_uso(name="termos_uso", type="checkbox", value="1")
+                                    span Eu li, entendi e estou ciente de todo o conteúdo do documento acima, estou de acordo com o presente termo.
+
+                    div
+                        li#submit
+                            input#btCloseCadastro(name="btCloseCadastro", type="button", value=" cancelar ", onClick="fnCloseCadastro()", style="float:left")
+                            input#btCriaCadastro(name="btCriaCadastro", type="button", value=" Criar Cadastro ", onClick="fnCadastro()", style="float:right")

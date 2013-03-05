@@ -1,0 +1,54 @@
+!!!
+html
+	head
+		meta(http-equiv='Content-Type', content='text/html;charset=utf-8')
+		title= title
+		script.
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-32659076-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+		style.
+			*{outline: none;}
+			html, body{
+				margin: 0px;
+				padding: 0px;
+				height:100%;
+				overflow:hidden;
+			} 
+			#container-jogo{
+				width:100%;
+				height:100%;
+				top:0px;
+				left:0px;
+			}
+			#main-jogo{
+				display: table;
+				position:absolute;
+				width:100%;
+				height:100%;
+				top:0px;
+				left:0px;
+				text-align:center;
+			}
+			#main-jogo-mask{
+				display:table-cell;
+				width:100%;
+				height:100%;
+				vertical-align:middle;
+				background:url('/images/ninjitsu_100_black.png') no-repeat center right;
+			}
+			.tituloJogo{
+				position:absolute;
+				margin-top:-40px;
+				color:#fff;
+				font-family: "Droid Sans", Tahoma, Arial, sans-serif; 
+			}
+
+body!= body

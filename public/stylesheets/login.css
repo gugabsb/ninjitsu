@@ -1,0 +1,125 @@
+    span.msgErro{
+        font-family: "Droid Sans", Tahoma, Arial, sans-serif;
+        color: red;
+        font-size: 12px;
+        background: #ffff00;
+        padding: 10px;
+        line-height:30px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+    #container-login{
+        width:100%;
+        height:100%;
+        top:0px;
+        left:0px;
+    }
+    #box-login{
+        display: table;
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0px;
+        left:0px;
+        text-align:center;
+    }
+    #box-login .box-login-borda{
+        display:table-cell;
+        width:100%;
+        height:100%;
+        vertical-align:middle;
+        background: rgba(0, 0, 0, .8); 
+    }
+    #box-login .box-login-janela{
+        display:inline-block;
+        width: 320px;
+        background-color:#ddd;
+        border: 5px solid rgba(255, 255, 255, .5);
+        border-radius: 15px;
+    }
+    #box-login .box-login-titulo{
+        padding: 0 10px;
+        height: 48px;
+        line-height: 48px;
+    }
+    #box-login .box-login-conteudo{
+        border: 1px solid #F0F0F0;
+        background-color: #FFF;
+        border-radius: 12px;
+        padding: 0 10px;
+    }
+    .box-login-titulo .titulo{
+        color: #313131;
+        font-size: 20px;
+        font-weight: bold
+    }
+    .box-login-conteudo fieldset{
+        border: 0;
+        margin: 0;
+        padding: 20px;
+    }
+    .login{
+        vertical-align: center;
+        display: table;
+        text-align: center;
+        width: 100%;
+    }
+    .login input {
+        border-radius: 6px;
+        padding: 10px 10px 10px 10px;
+        background-color: white;
+    }
+    .loginField {
+        box-shadow: 0 0 2px 0 
+        rgba(0, 0, 0, 0.3);
+        font-size: 20px;
+        width: 230px;
+        background-color: #FAFAFA;
+        margin-top: 10px;
+        margin-bottom: 10px;
+     }
+    #btLogin, #btEsqueciSenha{
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+        font-size: 20px;
+        width: 190px;
+        background-color: #56aaff;
+        color: #fff;
+        float: right;
+    }
+    #btLogin:hover, #btEsqueciSenha:hover{
+        background-color: #007fff;
+    }    
+    #btFechar,#btCancelar{
+        font-size: 20px;
+        color: #999999;
+     	background-color:#ddd;
+    }
+    #btFechar:hover,#btCancelar:hover{
+        color: #fff;
+        background-color:red;
+    }
+    
+    #esquecisenha{
+        display:none;
+    }
+    p.linkesquecisenha{
+        padding-bottom: 0px;
+    }
+    
+    p.linkesquecisenha a{
+        text-decoration: none;
+        color: #666;
+    }
+    
+    p.linkesquecisenha a:hover{
+        text-decoration: underline;
+        color: #007fff;
+    }    
+   
+    .bkgErro{
+        background: #FFE1FF!important;
+    }    
+    #carregando{
+        display: none;
+        float: right;
+    }

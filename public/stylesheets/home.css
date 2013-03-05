@@ -1,0 +1,184 @@
+  body,html{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+  }
+  #main{
+      width: 100%;
+      height: 100%;
+      background:#fff url('/images/bg.png');
+  }
+  #topbar{
+      width: 100%;
+      height: 41px;
+      top: 0;
+      left: 0;
+      background:#fff url('/images/bar_texturized.png');
+      text-align:center;
+      vertical-align:middle;
+      color: #ddd;
+      padding-top: 10px;
+  }
+  #topbar .boasvindas{
+    margin: 0 10px;
+    padding: 0;
+    font-size: 18px;
+  }
+  #topbar .btSair{
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-color: red;
+    color: #fff;
+    height: 40px;
+  }
+  #box_pessoal{
+    padding-top: 45px;
+    width:25%;
+    height:100%;
+    float:left;
+  }
+  #box_jogos{
+    padding-top: 45px;
+    width:50%;
+    height:100%;
+    float:left;
+    vertical-align: middle;
+    display: table;
+  }
+  #box_social{
+    padding-top: 45px;
+    width:25%;
+    height:100%;
+    float:left;
+  }
+
+  #box-jogos-borda{
+      display:table-cell;
+      width:100%;
+      height:100%;
+      vertical-align:top;
+  }
+  
+  #box-jogos-janela{
+      display:inline-block;
+      border:1px solid #666;
+      width:100%;
+      text-align:center;
+      border-radius: 10px;
+  }
+
+  #box-jogos-janela > div{
+    display:inline-block;
+    color: #999;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    vertical-align: middle;
+    text-align: center;
+    margin: 10px;
+    border: 2px solid silver;
+    width: 160px;
+    height: 120px;
+  }
+
+  #box_pessoal > div:hover,
+  #box-jogos-janela > div:hover,
+  #box_social > div:hover{
+    border: 2px solid #ffff00;
+  }
+
+  #cadastro,
+  #recordes,
+  #amigos
+  {
+    width: 40%;
+    height: 15%;
+  }
+
+  .jogos_quebracabeca{
+    background: url('/images/icone_quebracabeca.png') no-repeat;
+  }
+  .jogos_ben10_powersplash{
+    background: url('/images/icone_ben10_powerslpash.png') no-repeat;
+  }
+  .jogos_ben10_ultimatrix{
+    background: url('/images/icone_ben10_ultimatrix.png') no-repeat;
+  }
+  .jogos_ben10_sumoslammersamurai{
+    background: url('/images/icone_ben10_sumoslammersamurai.png') no-repeat;
+  }
+  .jogos_ben10_omnitrixunleashed{
+    background: url('/images/icone_ben10_omnitrixunleashed.png') no-repeat;
+  }
+  .jogos_ben10_cavernrun{
+    background: url('/images/icone_ben10_cavernrun.png') no-repeat;
+  }
+  .jogos_ben10_humongosaurgiantforce{
+    background: url('/images/icone_ben10_humongosaurgiantforce.png') no-repeat;
+  }
+  .jogos_ben10_krakkenattack {
+    background: url('/images/icone_ben10_krakkenattack.png') no-repeat;
+  }
+  .jogos_ben10_herohoops{
+    background: url('/images/icone_ben10_herohoops.png') no-repeat;
+  }
+  
+  h2#titulo{
+    font-size: 18px;
+    font-family: "Droid Sans", Tahoma, Arial, sans-serif;   
+    background: rgba(0, 0, 0, .2);
+    padding: 5px 10px; 5px;
+    margin: 0;
+    color: #fff;
+  }
+
+  #online,
+  #chat
+  {
+    width: 30%;
+    height: 15%;
+  }
+
+  #container-jogo{
+    display: none;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+  }
+
+  #main-jogo{
+    display: table;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    text-align:center;
+  }
+
+  #main-jogo-mask{
+    display:table-cell;
+    width:100%;
+    height:100%;
+    vertical-align:middle;
+    background: rgba(0, 0, 0, 1);
+  }
+
+  #jogo-box{
+    display:inline-block;
+    width:1024px;
+    height:100%;
+    max-height: 768px;
+  }
+
+  #jogo-box iframe{
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    border:0;
+  }

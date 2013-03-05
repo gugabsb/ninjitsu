@@ -1,0 +1,90 @@
+script.
+	function fnSair(){
+		window.location="/sair"
+	}
+	function fnAbreJogo(jogo){
+		window.location ='/'+jogo;
+	}
+
+style.
+	body,html{
+		width:100%;
+		height:100%;
+	}
+	#topbar{
+		margin:0 0 20px;
+		padding:0;
+		height:45px;
+		line-height: 45px;
+		top:0;
+		left:0;
+		width:100%;
+		background: #fafafa;
+		border-bottom: 1px solid silver;
+		position:absolute;
+	}
+	#topbar .boasvindas{
+		margin: 0 10px;
+		padding: 0;
+		font-size: 18px;
+	}
+	#topbar .btSair{
+		right: 0;
+		top: 0;
+		position: absolute;
+		background-color: red;
+		color: #fff;
+	}
+	#jogos-quebracabeca{
+		width: 100px;
+		height: 100px;
+		background-color: #fff000;
+		border: 1px solid silver;
+		cursor: pointer;
+		vertical-align: middle;
+	}
+	#jogos-quebracabeca:hover{
+		background-color: #ffff00;
+	}
+
+	#main{
+		display: table;
+		width:100%;
+		height:100%;
+		vertical-align:middle;
+	}
+	#conteudo{
+		display: relative;
+		width:800px;
+		height:500px;
+		margin-top: 100px;
+		margin-left: 100px;
+		border: 1px solid silver;
+	}
+	#shuriken{
+		cursor:pointer;
+	}
+div#topbar
+	h2.boasvindas Seja bem vindo #{login.nome}
+	input#doSair.btSair(name="doSair", type="button", value="sair", onClick="fnSair()");
+div#main
+	div#conteudo
+		div#jogos-quebracabeca(onClick="fnAbreJogo('quebracabeca')") Quebra-Cabeça
+		img#shuriken(src="/images/shuriken.gif", onclick="gr.load()")
+
+script(type="text/javascript", src="/javascripts/Box2dWeb-2.1.a.3.min.js")
+script(type="text/javascript", src="/javascripts/gravity.packed.js")
+script.
+
+	var gr = new gravity({
+		boundaries: "conteudo",
+		debugDraw: false,
+		onBeginCollision: function(collisions){console.log(collisions);}
+	});
+	gr.add("shuriken", {
+		fixed: false,
+		restitution: 1,
+		friction: 0.1,
+		density: 1,
+		includeChild: false
+	});

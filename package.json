@@ -1,0 +1,20 @@
+{
+  "author": "Gustavo Matias <gugabsb@gmail.com>",
+  "name": "NinJitSu",
+  "analyze": false,
+  "subdomain": "nin",
+  "scripts": {
+    "start": "app.js"
+  },
+  "version": "1.0.0-16",
+  "engines": {
+    "node": "0.8.X"
+  },
+  "dependencies": {
+    "express": "",
+    "jade": "",
+    "mongoose": "",
+    "nodemailer": "",
+    "express-partials": ""
+  }
+}

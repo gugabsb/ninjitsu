@@ -1,0 +1,177 @@
+
+
+/* =============================================================================
+   html & body standards
+   ========================================================================== */
+
+html {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+
+body {
+  color: #7E7E7E;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* =============================================================================
+   Modal standards
+   ========================================================================== */
+
+.modal-container {
+  display: table;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #fff url('/images/ninjitsu.png') no-repeat 10% 50%;
+}
+
+.modal-backdrop {
+  background: rgba(0,0,0, 0.1);
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.modal-border {
+  background: rgba(0,0,0, 0.2);
+  border-radius: 12px;
+  display: inline-block;
+  padding: 8px;
+}
+
+.modal {
+  background: #FAFAFA;
+  border-radius: 6px;
+  box-shadow: 0 0 4px 0 rgba(0,0,0, 0.25);
+  display: inline-block;
+  text-align: left;
+  width: 300px;
+}
+
+.modal > .header {
+  height: 48px;
+  line-height: 48px;
+  padding: 0 10px;
+}
+
+.modal > .header > .title {
+  color: #313131;
+  font-size: 20px;
+  font-weight: bold;
+  height: 48px;
+}
+
+.modal.processing > .header > .title {
+  background: url("/img/spinner.gif") 0 2px no-repeat;
+  padding-left: 22px;
+}
+
+.modal > .content {
+  padding: 0 10px;
+}
+
+.modal > .content > .message {
+  padding-bottom: 24px;
+}
+
+/* =============================================================================
+   Form & input standards
+   ========================================================================== */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  float: left;
+  padding: 10px 10px 10px 10px;
+  text-align: right;
+  font-size:20px;
+  width:150px;
+  height:40px;
+}
+
+input {
+  border-radius: 6px;
+  padding: 10px 10px 10px 10px;
+  background-color: #fff;
+}
+
+input:focus {
+  border-color: #9A9A9A;
+  box-shadow: 0 0 2px 0 rgba(0,0,0, 0.3);
+}
+
+input[disabled] {
+  background: #FAFAFA;
+  color: #CCC;
+}
+
+/* =============================================================================
+   Screen standards
+   ========================================================================== */
+
+.screen .modal {
+  width: auto;
+}
+
+.screen .modal > .content {
+  position: relative;
+}
+
+.screen .modal > .content > .message {
+  display: none;
+}
+
+.screen .modal > .content > .custom-content {
+  background: #FFF;
+  border: 1px solid #DFDFDF; /* TODO: fix with box-shadow */
+  border-radius: 4px;
+/*  box-shadow: inset 0 0 4px 0 rgba(0,0,0, 0.25);*/
+  margin: -1px 0 10px 0; /* TODO: fix with box-shadow */
+  min-height: 200px; /* TODO: fix with box-shadow */
+  min-width: 400px;
+  position: relative;
+}
+
+
+
+/* =============================================================================
+   Ninjitsu icones
+   ========================================================================== */
+.login{
+  vertical-align:center;
+  display:table;
+  text-align:center;
+  width:100%;
+}
+
+.loginField{
+  box-shadow: 0 0 2px 0 rgba(0,0,0, 0.3);
+  font-size:20px;
+  width:230px;
+  background-color: #FAFAFA;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.loginButton{
+  box-shadow: 0 0 2px 0 rgba(0,0,0, 0.3);
+  font-size:20px;
+  width:250px;
+  background-color: #FAFAFA;
+}

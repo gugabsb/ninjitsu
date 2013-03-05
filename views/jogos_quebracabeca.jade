@@ -1,0 +1,76 @@
+//- box Quebra-Cabeça
+div#comandos
+    input#bt_jogos(type="button", name="bt_jogos", value=" novo jogo ", title="Iniciar um Novo Jogo")
+
+div#container-quebracabeca(style="display:none")
+    div#main-quebracabeca
+        div#main-quebracabeca-mask
+            div#quebracabeca-box
+                div#controleResultado
+                    input#bt_repetirjogo(type="button", name="bt_repetir", value=" repetir ", title="Repetir este Jogo")
+                    input#bt_novojogo(type="button", name="bt_novojogo", value=" novo jogo ", title="Iniciar um Novo Jogo")
+                div#imgCompleta
+                div#boxResultado
+                    div#titulo
+                        h4#tituloJogo
+                    div#pontuacao
+                        h4 Pontos: 
+                          span#pontosTotal
+                        h4 Tempo: 
+                          span#tempoTotal
+                    div#recordes
+                        h4 Recordes
+                            ul#listaRecordes
+
+canvas#canvas2.canvas2
+#main
+    #boxmain.alpha
+    #containerGrid
+    #container
+    #repositorio(onselectstart="return false;")
+    h1#acertos.neonVerde(style="display:none") 0
+    h1#erros.neonVermelho(style="display:none") 0
+    #tempo(style="display:none")
+        span 00:00
+    #log
+    #chat(style="display:none")
+        #msgRetorno
+            #msgRetornoInner
+                h2# Bem vindo
+        fieldset#msgSend
+            p(style="padding:10px",align="center")
+                input#msg(type='text')
+                br
+                select#destinatario_id
+                    option(value="") para todos
+                input#bt_enviar(type="button", value='enviar') online:
+                    span#visitas 0
+
+    #drag(draggable="true")
+    audio#sons_tema
+        source#source_tema(src="", type="audio/mp3")
+    audio#sons_palmas
+        source(src="/sons/palmas.mp3",type="audio/mp3")
+    audio#sons_oh_no
+        source(src="/sons/oh_no.mp3",type="audio/mp3")
+    audio#sons_pin
+        source(src="/sons/pin.mp3",type="audio/mp3")
+    audio#sons_kids
+        source(src="/sons/kids_comemorando.mp3",type="audio/mp3")
+
+- var categorias = [{nome:"ben10"},{nome:"barbie"},{nome:"bakugan"},{nome:"beyblade"}];
+
+    #mascara.mascara
+        img#carregando(style="display:none;left:40%;top:40%;position:absolute;",src="/images/carregando.gif")
+
+    #modelos(style="position:absolute; right:15px; z-index:7; display:none;")
+        ul#categorias(style="list-style:none;")
+            - each cat in categorias
+                li
+                    img(src="http://publicnin.jit.su/images/img/#{cat.nome}/logo.png", categoria="#{cat.nome}")
+
+    #submodelos(style="position:absolute; left:15px; top: 50px; z-index:8; height: 100%")    
+        ul#thumb_ben10(style="list-style:none; width:700px; display:none;")
+        ul#thumb_bakugan(style="list-style:none; width:700px; display:none;")
+        ul#thumb_barbie(style="list-style:none; width:700px; display:none;")
+        ul#thumb_beyblade(style="list-style:none; width:700px; display:none;")

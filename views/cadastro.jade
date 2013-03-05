@@ -1,0 +1,217 @@
+script.
+    function fnEnviar(){
+        $(".msgErro").remove();
+
+        $.ajax({
+            url: "/cadastro",
+            type: "POST",
+            data: {
+                nome: $('#nome').val(), 
+                email: $('#email').val(), 
+                nascimento: $('#nascimento').val(), 
+                usuario: $('#usuario').val(), 
+                senha: $('#senha').val(),
+            },
+            cache: false,
+            timeout: 5000,
+            complete: function() {
+              console.log('process complete');
+            },
+            success: function(data) {
+              fnTrataSuccess(data);
+            },
+            error: function(err) {
+              fnTrataError(err);
+            },
+        });
+    }
+
+    function fnMensagens(code){
+        var span = document.createElement("span");
+            span.className="msgErro";
+        var texto;
+        switch(code){
+            case 11000:
+                texto = document.createTextNode("Já existe este cadastrado, informe um diferente!");
+                break;
+            default:
+                texto = document.createTextNode("Ocorreu um erro, tente novamente em instantes.");
+        }
+        span.appendChild(texto);
+        return span;
+    }
+
+    function fnTrataError(erro){
+        $('.submit').append(fnMensagens(erro.code));
+        //erro não tratado
+        console.log(erro);
+        console.log('process error: '+ erro.statusText);
+    }
+
+    function fnTrataSuccess(data){
+        var retorno = JSON.parse(data.dados);
+        if(retorno.erro){
+            fnCadastroErro(retorno.erro);
+        }else{
+            fnCadastroSucesso(retorno.retorno);
+        }
+    }
+
+    function fnCadastroSucesso(retorno){
+        console.log(retorno);
+        console.log('process sucess');
+    }
+
+    function fnCadastroErro(erro){
+        console.log(erro);
+        console.log('process erro: '+ erro.err);
+        
+        //duplicate key
+        if(erro.code == 11000){
+            campo_erro = erro.err.substring(erro.err.indexOf("$")+1,erro.err.indexOf("_"));
+            $('#'+campo_erro).css("color","red");
+            $('#li'+campo_erro).append(fnMensagens(erro.code));
+        } 
+
+    }
+
+    function dateReviver(key, value) {
+        var a;
+        if (key == 'nascimento' && typeof value === 'string') {
+            a = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
+            if (a) {
+                return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
+                                +a[5], +a[6]));
+            }
+        }
+        return value;
+    };
+
+style.
+    #cadastro{
+        width:400px;
+        border-left: 1px solid #0084D4;
+        padding-left: 10px;
+    }
+    #cadastro .conteudo{
+        padding-top: 10px;
+        border-bottom: 1px solid #0084D4;
+    }
+    .conteudo h4{
+        font-family: "Helvetica", Tahoma, Tahoma, sans-serif;
+        color: #0084D4;
+        font-weight: bold;
+        font-size: 20px;
+        letter-spacing: -0.5px;
+        margin: 0px 0 5px 0px;
+    }
+    #formCadastro li{
+        list-style: none;
+        display: list-item;
+        text-align: -webkit-match-parent;
+        margin-bottom: 15px;  
+    }
+    p.instrucoes {
+        font-family: "Droid Sans", Tahoma, Arial, sans-serif;
+        font-size: 12px;
+        color: #0084D4;
+        font-size: 12px;
+        letter-spacing: -0.5px;
+    }
+    #formCadastro li label{
+        font-family: "Droid Sans", Tahoma, Arial, sans-serif;
+        display: block;
+        padding: 0 0 2px 2px;
+        font-size: 13px;
+        font-size: 12px;
+        min-width: 125px;
+        color: #404447;
+    } 
+    #formCadastro li input{
+        font-family: "Droid Sans", Tahoma, Arial, sans-serif;
+        color: black;
+        border: 1px solid #338199;
+        border-color: #C0DAEA;
+        padding: 7px 3px 7px 7px;
+        font-size: 15px;
+        letter-spacing: 0.2px;
+        margin: 3px 0 0 1px;
+        background: white;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+    }
+    #formCadastro li.submit{
+        text-align:center;
+        padding-top: 10px;
+    }
+    #formCadastro .nome,
+    #formCadastro .email{
+        width:280px;        
+    }
+    #formCadastro .dia,
+    #formCadastro .mes{
+        width:30px;
+        margin-right:10px
+    }
+    #formCadastro .ano{
+        width:50px;
+    }
+
+    #formCadastro .usuario,
+    #formCadastro .senha{
+        width:120px;
+    }
+    span.msgErro{
+        display: list-item;
+        font-family: "Droid Sans", Tahoma, Arial, sans-serif;
+        color: red;
+        font-size: 10px;
+    }
+    a, a:visited{
+        color:black;
+    }
+    a:hover{
+        color:gray;
+        text-decoration:none;
+    }
+
+div#cadastro
+    form#formCadastro(accept-charset="UTF-8", action="/cadastro", method="post")
+        div.conteudo
+            h4 Cadastro Grátis
+            p.instrucoes Essas informações são necessárias para o login no Nin.Jit.Su
+            li#linome
+                label(for="nome") Nome Completo:
+                    abbr(title="required") *
+                input#nome.nome(maxlength="100", name="nome", required="required", type="text", value="")
+            li#liemail
+                label Email:
+                    abbr(title="required") *
+                input#email.email(autocomplete="on", maxlength="100", name="email", required="required", type="email")
+            li#linascimento
+                label Data de Nascimento:
+                    abbr(title="required") *
+                input#nascimento_dia.dia(maxlength="2", name="dia", required="required", type="text")
+                input#nascimento_mes.mes(maxlength="2", name="mes", required="required", type="text")
+                input#nascimento_ano.ano(maxlength="4", name="ano", required="required", type="text")
+            p.instrucoes Dados para login:
+            li#liusuario
+                label(for="usuario") Usuário:
+                    abbr(title="required") *
+                input#usuario.usuario(autocomplete="on", maxlength="10", name="usuario", type="text")
+            li#lisenha
+                label(for="senha") Senha:
+                    abbr(title="required") *
+                input#senha.senha(autocomplete="on", maxlength="10", name="senha", type="password")
+
+        div.conteudo
+            h4 Termos de Uso
+            p.instrucoes Por favor leia com atenção o 
+                a(href="#",target="_blank") Termos de Uso
+                span  e marque a opção abaixo caso esteja de acordo:
+            li
+                label 
+                    input#termos_uso(name="termos_uso", type="checkbox", value="1")
+                    span  Eu li, entendi e estou ciente de todo o conteúdo do documento acima, estou de acordo com o presente termo.
+        li.submit
+            input#btCadastro.btCadastro(name="btCadastro", type="button", value="Criar Cadastro", onClick="fnEnviar()")

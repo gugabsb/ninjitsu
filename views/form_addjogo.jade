@@ -1,0 +1,104 @@
+script.
+	$(function() {
+		$('#addjogo').click(
+			function(event){
+				fnAddJogo();
+				event.preventDefault();	
+			}
+		)
+	});
+
+	function fnAddJogo(){
+		//carrega thumb
+		$.ajax({
+			url: "/addjogo",
+			type: "POST",
+			data: {
+				jogo: $('#jogo').val(),
+				categoria: $('#categoria').val(),
+				titulo: $('#titulo').val(),
+				link: $('#link').val(),
+				usuario: $('#usuario').val()
+			},
+			cache: false,
+			timeout: 5000,
+			complete: function() {
+				//console.log('process complete');
+			},
+			success: function(data) {
+				//console.log('gravado recorde');
+				//console.log(data);
+				fnJogoAdicionado(data);
+			},
+			error: function(err) {
+				console.log('erro ao gravar recorde');
+				alert(err);
+			}
+		});
+	}
+	function fnJogoAdicionado(data){
+		alert(data);
+	}
+
+style.
+	#jogo-box{
+		display:inline-block;
+		border:1px solid silver;
+		width: 400px;
+		height: 400px;
+	}
+
+	#formaddjogo{
+		width: 400px;
+		padding:0;
+		margin:0;
+	}
+
+	#formaddjogo ul{
+		list-style: none;
+		width: 400px;
+		float: left;
+		padding:0;
+		margin:0;		
+	}
+
+	#formaddjogo ul li{
+		width: 400px;
+		text-align: left;
+	}
+	#formaddjogo ul li label{
+		width: 140px;
+		display: inline-block;
+		background-color: #ddd;
+		margin: 5px;
+		padding: 5px;
+	}
+	#formaddjogo ul li input{
+		width: 215px;
+		margin: 5px;
+		padding: 5px;
+	}
+
+div#container-jogo
+	div#main-jogo
+		div#main-jogo-mask
+			div#jogo-box
+				form#formaddjogo
+					ul
+						li
+							label Jogo
+							input#jogo(type="text", value="quebracabeca")
+						li
+							label Categoria
+							input#categoria(type="text")
+						li
+							label Titulo
+							input#titulo(type="text")
+						li
+							label Link
+							input#link(type="text")
+						li
+							label Usuarios
+							input#usuario(type="text", value="todos")
+						li
+							input#addjogo(type="button", value="salvar")

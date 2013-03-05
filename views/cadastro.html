@@ -1,0 +1,44 @@
+<div id="cadastro">
+    <form accept-charset="UTF-8" action="/cadastro" id="formCadastro" method="post">
+        <div class="conteudo cadastro">
+            <h4>Cadastro Grátis</h4>
+            <p class="instrucoes">This information is used when you are logging into MongoHQ.</p>
+            <li>
+                <label class="label" for="nome">Nome Completo:
+                    <abbr title="required">*</abbr>
+                </label>
+                <input id="nome" maxlength="100" name="nome" required="required" type="text" value="">
+            </li>
+            <li>
+                <label class="label">Email:
+                    <abbr title="required">*</abbr>
+                </label>
+                <input autocomplete="off" class="email" id="email" maxlength="100" name="email" required="required" type="email">
+            </li>
+            <li>
+                <label class="label">Data de Nascimento:
+                    <abbr title="required">*</abbr>
+                </label>
+                <input class="nascimento" id="dat_nascimento" maxlength="10" name="dat_nascimento" required="required" type="date">
+            </li>
+            <p class="instrucoes">Dados para login:</p>
+            <li>
+                <label class="label" for="username">Usuário</label>
+                <input autocomplete="off" id="username" maxlength="10" name="username" type="text">
+            </li>
+        </div>
+        <div class="content signup">
+            <h4>Termos de Uso</h4>
+                <p class="setup_instructions">
+                    Por favor leia com atenção:
+                    <a href="#" target="_blank">Terms de Uso</a> e marque a opção abaixo caso esteja de acordo:
+                </p>
+                <li>
+                    <label class="label" for="termos_uso">
+                        I li e entendi todo o conteúdo do documento acima, dada a verdade estou de acordo com o presente termo <input id="termos_uso" name="account[terms]" type="checkbox" value="1">
+                    </label>
+                </li>
+        </div>
+        <li class="commit button"><input class="btCadastro" id="btCadastro" name="btCadastro" type="submit" value="Criar Cadastro"></li>
+    </form>
+</div>
